@@ -1,0 +1,194 @@
+body {
+    font-size: 16px;
+}
+
+.navbar-brand {
+    color: orange;
+    font-size: 2em;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: orange;
+}
+
+.nav-link {
+    cursor: pointer;
+}
+
+.nav-item {
+    margin-right: 0.5em;
+}
+
+.head-line {
+    padding: 1em;
+    border-bottom: 1px solid lightgray;
+    font-size: 2em;
+    color: #1b1b1b;
+    line-height: 2em;
+    text-align: left;
+    margin-bottom: 1em;
+    padding-left: 0.5em;
+}
+
+.text {
+    margin: 1em;
+    font-size: 1em;
+    color: #555;
+    line-height: 2em;
+    text-align: center;
+}
+
+#areaCode-buttons {
+    margin-top: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#areaCode-buttons button {
+    padding: 0.5em;
+    margin: 0.5em;
+}
+
+#areaCode-buttons button.active {
+    background-color: #6c757d;
+    color: white;
+}
+
+.pageExplain {
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+    align-items: center;
+    text-align: center;
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+
+.total-count {
+    display: flex;
+    margin-right: 1em;
+    align-items: center;
+    padding: 0;
+}
+
+.pageNum {
+    padding: 0 1em;
+    height: 2em;
+}
+
+.pageInput{
+    display: flex;
+}
+
+.page-input {
+    margin-left: 1em;
+    width: 5em;
+}
+
+.img-size {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+}
+
+.spot-board-area {
+    background-color: #f8f8f8;
+}
+
+.spot-area {
+    background-color: white;
+    position: relative;
+    width: 85%;
+    height: 8em;
+    margin: 2em 0 1em 3em;
+}
+
+.map-area {
+    background-color: #f8f8f8;
+}
+
+.map-size {
+    width: 100%;
+    height: 700px;
+}
+
+.spot-title {
+    font-size: 1em;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.spot-text {
+    font-size: 0.8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.disabled {
+    display: none;
+}
+
+.spot-story {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media screen and (max-width: 48rem) {
+    .spot-area {
+        margin: 1em 0 1em 0em;
+    }
+
+    .spot-area {
+        width: 100%;
+        height: 5em;
+    }
+
+    .map-size {
+        height: 300px;
+    }
+
+    .pageExplain {
+        flex-direction: column;        
+    }
+    
+    .pagination{
+        --bs-pagination-padding-x: 0.5rem;
+        --bs-pagination-padding-y: 0.25rem;
+        --bs-pagination-font-size: 0.875rem;
+    }
+
+    .total-count{
+        margin-bottom: 0.5em;
+        margin-right: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .page-input, #pageGoButton {
+        display:none;
+    }
+
+    #areaCode-buttons button {
+        padding: 0.3em;
+        margin: 0.3em;
+        font-size: 1em;
+    }
+
+}
