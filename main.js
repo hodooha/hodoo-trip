@@ -67,6 +67,12 @@ searchInput.addEventListener("focus", () => {
   searchInput.value = "";
 });
 
+searchInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.keyCode === 13) {
+    search();
+  }
+});
+
 areaList.forEach((areas) =>
   areas.addEventListener("click", (event) => getTripSpotByArea(event))
 );
@@ -74,22 +80,19 @@ pageInput.addEventListener("focus", () => {
   pageInput.value = "";
 });
 
-const search = async (ele) => {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    areaList.forEach((a) => {
-      a.classList.remove("active");
-    });
-    let keyword = ele.value;
-    if (keyword.length == 0) {
-      alert("검색어를 입력하세요.");
-    } else {
-      headLine.innerHTML = "검색결과";
-      areaCode = "";
-      pageInput.value = "";
-      page = 1;
-      getTripSpot();
-    }
+const search = async () => {
+  areaList.forEach((a) => {
+    a.classList.remove("active");
+  });
+  let keyword = searchInput.value;
+  if (keyword.length == 0) {
+    alert("검색어를 입력하세요.");
+  } else {
+    headLine.innerHTML = "검색결과";
+    areaCode = "";
+    pageInput.value = "";
+    page = 1;
+    getTripSpot();
   }
 };
 
