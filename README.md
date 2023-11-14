@@ -1,5 +1,6 @@
 # hodoo-trip
 지역별 관광지, 숙박, 축제&amp;행사, 음식점 정보를 확인할 수 있는 웹사이트
+데모웹사이트 : https://hodoo-trip.netlify.app/
 ![image](https://github.com/hodooha/hodoo-trip/assets/148246588/be881f32-63b8-47c4-ba38-face0f536c20)
 ![image](https://github.com/hodooha/hodoo-trip/assets/148246588/9788992e-e419-44be-9d5b-2e7fae870191)
 
