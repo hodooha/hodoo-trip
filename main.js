@@ -66,8 +66,8 @@ navList.forEach((nav) => {
 searchInput.addEventListener("focus", () => {
   searchInput.value = "";
 });
-searchInput.addEventListener("keydown", (e) => {
-  if (e.keyCode === 13) {
+searchInput.addEventListener("keyup", (e) => {
+  if (e.key === 'Enter' || e.keyCode === 13) {
     search();
   }
 });
