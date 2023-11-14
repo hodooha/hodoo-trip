@@ -170,19 +170,16 @@ const render = () => {
   let SpotHTML = SpotList.map((item) => {
     return `<div class="row spot-area">
         <div class="col-5">
-          <img class="img-size" src="${
-            item.firstimage2 ||
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqEWgS0uxxEYJ0PsOb2OgwyWvC0Gjp8NUdPw&usqp=CAU%22"
-          }" />
+          <img class="img-size" src="${item.firstimage2 ||
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqEWgS0uxxEYJ0PsOb2OgwyWvC0Gjp8NUdPw&usqp=CAU%22"
+      }" />
         </div>
         <div class="col-7 spot-story">
-          <div class="spot-title" onclick="mapCenter(${item.mapy}, ${
-      item.mapx
-    })">${item.title}</div>
+          <div class="spot-title" onclick="mapCenter(${item.mapy}, ${item.mapx
+      })">${item.title}</div>
           <div class="spot-text">${item.addr1}</div>
-          <div class="spot-text ${item.tel.length === 0 ? "disabled" : ""}">${
-      item.tel
-    }</div>
+          <div class="spot-text ${item.tel.length === 0 ? "disabled" : ""}">${item.tel
+      }</div>
         </div>
       </div>`;
   }).join("");
@@ -216,29 +213,23 @@ const paginationRender = () => {
   let pageHTML = "";
 
   if (totalPages > 5) {
-    pageHTML += `<li class="page-item"><a class="page-link ${
-      page <= 1 ? "disabled" : ""
-    }"" aria-label="Previous" onclick="moveToPage(1)"><span aria-hidden="true">&lt;&lt;</span></a></li><li class="page-item"><a class="page-link ${
-      page <= 1 ? "disabled" : ""
-    }" aria-label="Previous" onclick="moveToPage(${
-      page - 1
-    })"><span aria-hidden="true">&lt;</span></a></li>`;
+    pageHTML += `<li class="page-item"><a class="page-link ${page <= 1 ? "disabled" : ""
+      }"" aria-label="Previous" onclick="moveToPage(1)"><span aria-hidden="true">&lt;&lt;</span></a></li><li class="page-item"><a class="page-link ${page <= 1 ? "disabled" : ""
+      }" aria-label="Previous" onclick="moveToPage(${page - 1
+      })"><span aria-hidden="true">&lt;</span></a></li>`;
   }
 
   for (i = firstPage; i <= lastPage; i++) {
-    pageHTML += `<li class="page-item"><a class="page-link page-item ${
-      i === page ? "active" : ""
-    }" onclick="moveToPage(${i})">${i}</a></li>`;
+    pageHTML += `<li class="page-item"><a class="page-link page-item ${i === page ? "active" : ""
+      }" onclick="moveToPage(${i})">${i}</a></li>`;
   }
 
   if (lastPage < totalPages) {
     pageHTML += `<li class="page-item">
-      <a class="page-link ${
-        page == totalPages ? "disabled" : ""
+      <a class="page-link ${page == totalPages ? "disabled" : ""
       }" aria-label="Next" onclick="moveToPage(${page + 1})">
         <span aria-hidden="true">&gt;</span>
-      </a></li><li class="page-item"><a class="page-link ${
-        page == totalPages ? "disabled" : ""
+      </a></li><li class="page-item"><a class="page-link ${page == totalPages ? "disabled" : ""
       }" aria-label="Next" onclick="moveToPage(${totalPages})">
         <span aria-hidden="true">&gt;&gt;</span>
       </a>
@@ -246,7 +237,9 @@ const paginationRender = () => {
   }
 
   document.querySelector(".pagination").innerHTML = pageHTML;
-  document.querySelector(".total-count").innerHTML = `<strong>${totalCount}</strong>개의 결과가 있습니다.`
+  document.querySelector(
+    ".total-count"
+  ).innerHTML = `<strong>${totalCount}</strong>개의 결과가 있습니다.`;
 };
 
 pageGoButton.addEventListener("click", () => {
