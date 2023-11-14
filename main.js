@@ -2,10 +2,10 @@ const map_API_KEY = "f6a4e1ee7714fa35a1560cbaf26c3f54";
 const API_KEY =
   "XrE%2FOpLYS333gaSIeDccqLn6acHP65bY4XycvhWJFIwHRnDQPwMlNNDkVNP%2FTrDk4%2FdtmkMh9eQU7ZnMLywj2A%3D%3D";
 let map_url = new URL(
-  `http://dapi.kakao.com/v2/maps/sdk.js?appkey=${map_API_KEY}`
+  `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${map_API_KEY}`
 );
 let url = new URL(
-  `http://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey=${API_KEY}&numOfRows=10&MobileOS=ETC&MobileApp=hodootrip&arrange=O&listYN=Y&_type=json`
+  `https://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey=${API_KEY}&numOfRows=10&MobileOS=ETC&MobileApp=hodootrip&arrange=O&listYN=Y&_type=json`
 );
 let mapX = 126.981611;
 let mapY = 37.568477;
@@ -66,11 +66,7 @@ navList.forEach((nav) => {
 searchInput.addEventListener("focus", () => {
   searchInput.value = "";
 });
-searchInput.addEventListener("keyup", (e) => {
-  if (e.key === 'Enter' || e.keyCode === 13) {
-    search();
-  }
-});
+
 areaList.forEach((areas) =>
   areas.addEventListener("click", (event) => getTripSpotByArea(event))
 );
@@ -78,19 +74,22 @@ pageInput.addEventListener("focus", () => {
   pageInput.value = "";
 });
 
-const search = async () => {
-  areaList.forEach((a) => {
-    a.classList.remove("active");
-  });
-  let keyword = searchInput.value;
-  if (keyword.length == 0) {
-    alert("검색어를 입력하세요.");
-  } else {
-    headLine.innerHTML = "검색결과";
-    areaCode = "";
-    pageInput.value = "";
-    page = 1;
-    getTripSpot();
+const search = async (ele) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    areaList.forEach((a) => {
+      a.classList.remove("active");
+    });
+    let keyword = ele.value;
+    if (keyword.length == 0) {
+      alert("검색어를 입력하세요.");
+    } else {
+      headLine.innerHTML = "검색결과";
+      areaCode = "";
+      pageInput.value = "";
+      page = 1;
+      getTripSpot();
+    }
   }
 };
 
@@ -114,11 +113,11 @@ const getTripSpot = async () => {
     if (headLine.textContent == "검색결과") {
       keyword = searchInput.value;
       url = new URL(
-        `http://apis.data.go.kr/B551011/KorService1/searchKeyword1?serviceKey=${API_KEY}&numOfRows=10&MobileOS=ETC&MobileApp=hodootrip&arrange=O&listYN=Y&_type=json&keyword=${keyword}`
+        `https://apis.data.go.kr/B551011/KorService1/searchKeyword1?serviceKey=${API_KEY}&numOfRows=10&MobileOS=ETC&MobileApp=hodootrip&arrange=O&listYN=Y&_type=json&keyword=${keyword}`
       );
     } else {
       url = new URL(
-        `http://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey=${API_KEY}&numOfRows=10&MobileOS=ETC&MobileApp=hodootrip&arrange=O&listYN=Y&_type=json`
+        `https://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey=${API_KEY}&numOfRows=10&MobileOS=ETC&MobileApp=hodootrip&arrange=O&listYN=Y&_type=json`
       );
       url.searchParams.set("contentTypeId", contentTypeId);
     }
@@ -127,6 +126,7 @@ const getTripSpot = async () => {
     let rawData = await fetch(url);
     let data = await rawData.json();
     console.log("데이터", data);
+    console.log(headLine.innerHTML);
     if (data.response.header.resultCode == "0000") {
       totalCount = data.response.body.totalCount;
       SpotList = data.response.body.items.item;
