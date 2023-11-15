@@ -153,11 +153,12 @@ body {
 @media screen and (max-width: 48rem) {
     .spot-area {
         margin: 1em 0 1em 0em;
-    }
-
-    .spot-area {
         width: 100%;
         height: 5em;
+    }
+    .spot-text {
+        font-size: 0.6em;
+        text-wrap: wrap;
     }
 
     .map-size {
