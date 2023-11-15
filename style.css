@@ -156,6 +156,11 @@ body {
         width: 100%;
         height: 5em;
     }
+
+    .spot-title {
+        font-size: 0.8em;
+    }
+
     .spot-text {
         font-size: 0.6em;
         text-wrap: wrap;
