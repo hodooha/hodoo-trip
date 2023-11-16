@@ -127,13 +127,10 @@ const getTripSpot = async () => {
     url.searchParams.set("areaCode", areaCode);
     url.searchParams.set("pageNo", page);
     let rawData = await fetch(url);
-    let data = await rawData.json();
-    console.log("데이터", data);
-    console.log(headLine.innerHTML);
+    let data = await rawData.json();   
     if (data.response.header.resultCode == "0000") {
       totalCount = data.response.body.totalCount;
       SpotList = data.response.body.items.item;
-      console.log("리스트", SpotList);
       if (totalCount !== 0) {
         render();
         paginationRender();
@@ -159,7 +156,6 @@ const getTripSpotByArea = async (event) => {
   pageInput.value = "";
   area = event.target.textContent;
   areaCode = areaCodes.find((a) => a.name == area).code;
-  console.log(area, areaCode, contentTypeId);
   page = 1;
   event.target.classList.add("active");
   contentTypeId =
@@ -258,7 +254,6 @@ pageGoButton.addEventListener("click", () => {
 
 const moveToPage = (pageNum) => {
   page = pageNum;
-  console.log("페이지넘기자", page);
   getTripSpot();
 };
 
@@ -270,7 +265,6 @@ const mapRender = () => {
       latlng: new kakao.maps.LatLng(`${item.mapy}`, `${item.mapx}`),
     };
   });
-  console.log("좌표들", positionList);
 
   positionList.map((p) => {
     marker = new kakao.maps.Marker({
